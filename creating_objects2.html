@@ -1,0 +1,62 @@
+ <DOCTYPE html>
+ <html lang="en">
+  <head>
+    <title>Creating Objects Part 1</title>
+    <script>
+
+function Vehicle(name,wheel,passenger,speed){
+  
+      this.name = name;
+      this.wheel = wheel;
+      this.passenger = passenger;
+      this.speed = speed;
+      var self = this;
+      var distance_travelled = 0;
+      var updateDistanceTravelled = function(){
+         self.distance_travelled = distance_travelled + self.speed;
+        alert(self.distance_travelled);
+        }
+      this.makeNoise = function(){
+        alert("beepbeep!");
+        }
+      this.move = function(){
+        updateDistanceTravelled();
+        this.makeNoise();
+        }
+      this.checkMiles = function(){
+        console.log(distance_travelled)
+        }
+    }
+   
+  
+var Bike = new Vehicle("Bike", 4, 2);
+Bike.makeNoise = function(){
+  alert("Ring Ring!");
+}
+Bike.makeNoise();
+
+var Sedan = new Vehicle("Sedan", 4, 4);
+Sedan.makeNoise = function(){
+  alert("Honk Honk!");
+}
+
+Sedan.makeNoise();
+
+var Bus = new Vehicle("Bus",4,4);
+Bus.pickUpPassengers = function(pickup){
+  Bus.passenger += pickup;
+  alert(Bus.passenger + " total passengers including pickups");
+}
+Bus.pickUpPassengers(4);
+
+var Car = new Vehicle("Car", 4,4,10);
+Car.makeNoise();
+Car.move();
+Car.checkMiles();
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

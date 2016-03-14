@@ -1,0 +1,98 @@
+  <DOCTYPE html>
+ <html lang="en">
+ 	<head>
+ 		<title>Creating Objects Part 1</title>
+ 		<script>
+ 		function PlayerConstructor(name){
+    		this.name = name;
+    		return this;
+		}
+		function DeckConstructor(){
+		   this.name = name;
+		   this.arr_all = [];
+		   this.suit = function(){
+		     var arr_random = ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"]
+		     for(var i = 0; i < arr_random.length; i++){
+		       this.arr_all.push(arr_random[i]+" Spade")
+		     }
+		     for(var m = 0; m < arr_random.length; m++){
+		       this.arr_all.push(arr_random[m]+" Heart")
+		     }
+		     for(var n = 0; n < arr_random.length; n++){
+		       this.arr_all.push(arr_random[n]+" Diamond")
+		     }
+		     for(var t = 0; t < arr_random.length; t++){
+		       this.arr_all.push(arr_random[t]+" Club")
+		     }
+		//      return this.arr_all;
+		   }
+		   this.shuffle = function(){
+		       var m = this.arr_all.length, t, i;
+
+		  // While there remain elements to shuffle…
+		      while (m) {
+
+		    // Pick a remaining element…
+		    i = Math.floor(Math.random() * m--);
+
+		    // And swap it with the current element.
+		    t = this.arr_all[m];
+		    this.arr_all[m] = this.arr_all[i];
+		    this.arr_all[i] = t;
+		  }
+		  return this.arr_all;    
+		 }
+		}
+
+
+		DeckConstructor.prototype.reset = function() {
+		        this.arr_all = []
+		        this.suit()
+		        x = this.shuffle()
+		        return this;
+		}
+
+		DeckConstructor.prototype.deal_card = function() {
+		    rando=x[0];
+		    x.splice(rando,1)
+		    console.log("Hi " + z + "! Your card is " + rando)
+		    console.log(x.length)
+		    if(x.length < 1){
+		      console.log("Need to reset deck!")
+		    }
+		    return this;
+		}
+
+		DeckConstructor.prototype.new_person = function(name){
+		  z = PlayerConstructor(name).name
+		  return this;
+		}
+
+		DeckConstructor.prototype.discard_card = function(card){
+		  this.junk = [];
+		  this.junk.push(card);
+		  console.log(this.junk)
+		  this.deal_card()
+		  return this;
+		  
+
+		}
+
+
+		Hello = new DeckConstructor();
+		// Hello.reset().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card().deal_card()
+
+		// Kaur = new PlayerConstructor("Kaur");
+		// console.log(Kaur.name)
+		// Kaur.name.hello.reset()
+
+		Hello.new_person("Kaur").reset().deal_card().discard_card(rando)
+
+
+
+ 		</script>
+	</head>
+	<body>
+	</body>
+</html>
+		

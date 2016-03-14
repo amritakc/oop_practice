@@ -1,0 +1,42 @@
+ <DOCTYPE html>
+ <html lang="en">
+ 	<head>
+ 		<title>Creating Objects Part 1</title>
+ 		<script>
+			function vehicleConstructor(name,wheel,passenger){
+				vehicle = {
+					name: name,
+					makeNoise : function(){
+						alert("beepbeep!");
+					},
+					wheel: wheel,
+					passenger: passenger
+				}
+				return vehicle;
+			}
+
+			var Bike = vehicleConstructor("Bike", 4, 2);
+			Bike.makeNoise = function(){
+					alert("Ring Ring!");
+				}
+			Bike.makeNoise();
+
+			var Sedan = vehicleConstructor("Sedan", 4, 4);
+			Sedan.makeNoise = function(){
+					alert("Honk Honk!");
+				}
+
+			Sedan.makeNoise();
+
+			var Bus = vehicleConstructor("Bus",4,4);
+			Bus.pickUpPassengers = function(pickup){
+				vehicle.passenger += pickup;
+				alert(vehicle.passenger + " total passengers including pickups");
+				}
+			Bus.pickUpPassengers(4);
+
+ 		</script>
+	</head>
+	<body>
+	</body>
+</html>

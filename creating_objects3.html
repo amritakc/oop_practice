@@ -1,0 +1,54 @@
+ <DOCTYPE html>
+ <html lang="en">
+  <head>
+    <title>Creating Objects Part 1</title>
+	<script>
+		function Vehicle(name,wheel,passenger,speed){
+			this.name = name;
+			this.wheel = wheel;
+			this.passenger = passenger;
+			this.speed = speed;
+			this.distance_travelled = 0;
+		}
+
+		Vehicle.prototype.updateDistanceTravelled = function(){
+			this.distance_travelled += this.speed;
+			alert(this.distance_travelled);
+			return this;
+		}
+
+		Vehicle.prototype.makeNoise = function(){
+			alert("Beep Beep!");
+			return this;
+		}
+
+		Vehicle.prototype.move = function(){
+			this.updateDistanceTravelled();
+			this.makeNoise();
+			return this;
+		}
+
+		Vehicle.prototype.checkMiles = function(){
+			console.log(this.distance_travelled);
+			return this;
+		}
+
+
+		Vehicle.prototype.newVin = function(){
+			var text = "";
+			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+			for( var i=0; i < 18; i++ )
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+				alert(text)
+			return this;
+		}
+
+		autobus = new Vehicle("I'm a bus", 4, 4, 10);
+		autobus.newVin().updateDistanceTravelled().makeNoise()
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
